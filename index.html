@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FormPic – Photo & Signature Resizer for Forms (px, KB) | Free, Offline</title>
+<meta name="description" content="Resize photo and signature to exact pixels and KB for online forms. Make passport photo sheets and image-to-PDF. Free, works offline, your photo never leaves your device.">
+<meta name="keywords" content="photo resize 50kb, signature resize 20kb, passport photo maker, image to pdf, compress image to kb, form photo size, resize photo online">
+<meta name="author" content="Reehan MP">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#f2f7f6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#06100f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://YOUR-SITE.netlify.app/">
+<meta property="og:type" content="website"><meta property="og:title" content="FormPic – Resize photo & signature to exact KB"><meta property="og:description" content="Private, offline photo tools for forms: resize, passport sheet, image to PDF, compress."><meta property="og:url" content="https://YOUR-SITE.netlify.app/"><meta property="og:image" content="https://YOUR-SITE.netlify.app/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="FormPic">
+<link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/assets/icon-192.png"><link rel="apple-touch-icon" href="/assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Sora','system-ui','sans-serif'],sans:['"DM Sans"','system-ui','sans-serif']}}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"FormPic","url":"https://YOUR-SITE.netlify.app/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"author":{"@type":"Person","name":"Reehan MP"},"description":"Resize photo and signature to exact pixels and KB, make passport photo sheets, image to PDF. Runs in your browser."}</script>
+<style>
+:root{color-scheme:light;--bg:#f2f7f6;--card:#fff;--ink:#0b1a18;--mut:#53706b;--line:#d8e6e3;--acc:#0b8f7c;--tile:#e9f3f1;--ok:#0f9d58;--bad:#d93025;--grad:linear-gradient(135deg,#0fb5a0,#2b7bff)}
+.dark{color-scheme:dark;--bg:#06100f;--card:#0d1b19;--ink:#e9f7f4;--mut:#8fb0aa;--line:#1d3733;--acc:#3ddcc4;--tile:#091514;--ok:#3ddc84;--bad:#ff7b72;--grad:linear-gradient(135deg,#17c3ac,#4a8bff)}
+body{background:var(--bg);color:var(--ink);transition:background .3s}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.bgfx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}.bgfx i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.45;animation:fl 15s ease-in-out infinite alternate}
+.bgfx i:nth-child(1){width:420px;height:420px;left:-120px;top:-100px;background:#0fb5a066}.bgfx i:nth-child(2){width:380px;height:380px;right:-100px;top:35%;background:#2b7bff55;animation-delay:-6s}
+@keyframes fl{to{transform:translate(40px,30px) scale(1.15)}}
+.glass{background:color-mix(in srgb,var(--bg) 75%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.card{background:color-mix(in srgb,var(--card) 88%,transparent);border:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.btn{background:var(--grad);color:#fff;transition:transform .15s,box-shadow .2s;box-shadow:0 12px 24px -12px var(--acc)}.btn:not(:disabled):hover{transform:translateY(-1px)}.btn:not(:disabled):active{transform:scale(.97)}.btn:disabled{opacity:.5}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fld{display:block;font-size:.75rem;font-weight:600;color:var(--mut)}
+.fld input,.fld select{margin-top:4px;width:100%;border:1px solid var(--line);background:var(--tile);color:var(--ink);border-radius:12px;padding:.6rem .7rem;font-size:.95rem;font-weight:500}
+.chip{border:1px solid var(--line);background:var(--tile);border-radius:999px;padding:.4rem .8rem;font-size:.8rem;font-weight:600;transition:all .2s}.chip:hover,.chip[aria-pressed=true]{border-color:var(--acc);color:var(--acc)}
+.tab{display:flex;flex-direction:column;align-items:center;gap:2px;border-radius:14px;padding:.45rem .2rem;font-size:.7rem;font-weight:600;color:var(--mut);transition:all .25s}.tab[aria-selected=true]{color:#fff;background:var(--grad);box-shadow:0 8px 18px -8px var(--acc)}
+.dtab{flex-direction:row;gap:.5rem;padding:.55rem 1rem;font-size:.9rem}
+#cv{width:100%;max-width:460px;height:auto;max-height:62vh;object-fit:contain;touch-action:none;cursor:grab;border-radius:12px;background:repeating-conic-gradient(var(--line) 0 25%,transparent 0 50%) 50%/16px 16px;box-shadow:0 10px 30px -14px #0006}
+.in{animation:rise .45s cubic-bezier(.2,.8,.2,1)}@keyframes rise{from{opacity:0;transform:translateY(12px)}}
+.i-sun{display:none}.dark .i-sun{display:block}.dark .i-moon{display:none}
+#toast:not(.hidden){animation:rise .3s}.heart{display:inline-block;animation:beat 1.4s infinite}@keyframes beat{0%,40%,100%{transform:scale(1)}15%{transform:scale(1.3)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+<div class="bgfx" aria-hidden="true"><i></i><i></i></div>
+<header class="glass sticky top-0 z-30 border-b border-[var(--line)]" style="padding-top:env(safe-area-inset-top)">
+ <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
+  <a href="/" class="flex items-center gap-2"><span class="btn grid h-9 w-9 place-items-center rounded-xl"><i data-lucide="scan-face" class="h-5 w-5"></i></span><span class="font-display text-xl font-extrabold tracking-tight">FormPic</span></a>
+  <nav id="dtabs" class="hidden items-center gap-1 md:flex" aria-label="Tools"></nav>
+  <div class="flex items-center gap-2">
+   <button id="install" class="card hidden flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-semibold"><i data-lucide="smartphone" class="h-4 w-4"></i>Install</button>
+   <button id="theme" class="card grid h-10 w-10 place-items-center rounded-full" aria-label="Toggle dark mode"><i data-lucide="moon" class="i-moon h-5 w-5"></i><i data-lucide="sun" class="i-sun h-5 w-5"></i></button>
+  </div>
+ </div>
+</header>
+
+<main class="mx-auto max-w-6xl px-4 pb-32 pt-6 md:pb-10">
+ <section class="mb-5">
+  <h1 class="font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">Exact size. <span class="gt">Exact KB.</span> Zero upload.</h1>
+  <p class="mt-2 max-w-xl text-[var(--mut)]">Resize photo and signature for online forms, make passport sheets and PDFs. Everything runs on your device.</p>
+ </section>
+ <div class="grid items-start gap-5 lg:grid-cols-[1.1fr_.9fr]">
+  <section class="card in rounded-3xl p-4 sm:p-5" aria-label="Workspace">
+   <label id="drop" for="file" class="flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[var(--line)] px-4 py-14 text-center transition hover:border-[var(--acc)]">
+    <i data-lucide="image-plus" class="h-10 w-10 text-[var(--acc)]"></i>
+    <span class="mt-3 font-semibold">Tap to choose a photo, drop it, or paste</span>
+    <span class="mt-1 text-sm text-[var(--mut)]">JPG, PNG, WebP · stays on this device</span>
+    <input id="file" type="file" accept="image/*" multiple class="sr-only">
+   </label>
+   <div id="work" class="hidden">
+    <div id="cvbox" class="flex justify-center"><canvas id="cv" aria-label="Preview. Drag to move the photo."></canvas></div>
+    <div id="ctl" class="mt-4 flex items-center gap-3">
+     <i data-lucide="zoom-out" class="h-4 w-4 shrink-0 text-[var(--mut)]"></i><input id="zoom" type="range" min="0.5" max="4" step="0.01" value="1" class="w-full accent-[var(--acc)]" aria-label="Zoom"><i data-lucide="zoom-in" class="h-4 w-4 shrink-0 text-[var(--mut)]"></i>
+     <button id="rot" class="card grid h-10 w-10 shrink-0 place-items-center rounded-xl" aria-label="Rotate"><i data-lucide="rotate-cw" class="h-5 w-5"></i></button>
+    </div>
+    <p id="hint" class="mt-2 text-center text-xs text-[var(--mut)]">Drag the photo to position it. Use the slider to zoom.</p>
+    <div id="plist" class="hidden flex-wrap gap-2"></div>
+    <div class="mt-4 flex justify-center gap-2">
+     <label for="file" class="card flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold"><i data-lucide="image-plus" class="h-4 w-4"></i><span id="addlbl">Change photo</span></label>
+     <button id="clear" class="card flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-[var(--bad)]"><i data-lucide="trash-2" class="h-4 w-4"></i>Clear</button>
+    </div>
+   </div>
+  </section>
+
+  <section class="card in rounded-3xl p-4 sm:p-5" aria-label="Settings">
+   <h2 id="ptitle" class="font-display text-xl font-bold"></h2><p id="pdesc" class="text-sm text-[var(--mut)]"></p>
+   <div data-for="photo sign" class="mt-4"><p class="fld mb-2">Common sizes</p><div id="presets" class="flex flex-wrap gap-2"></div><p class="mt-2 text-xs text-[var(--mut)]">These are common sizes. Always match your form's notice.</p></div>
+   <div class="mt-4 grid grid-cols-3 gap-2">
+    <label class="fld" data-for="photo sign">Width (px)<input id="w" type="number" inputmode="numeric" min="16" max="6000"></label>
+    <label class="fld" data-for="photo sign">Height (px)<input id="h" type="number" inputmode="numeric" min="16" max="6000"></label>
+    <label class="fld" data-for="photo sign comp pdf">Max KB<input id="kb" type="number" inputmode="numeric" min="0" placeholder="No limit"></label>
+   </div>
+   <div class="mt-3 grid grid-cols-2 gap-2">
+    <label class="fld" data-for="photo sign comp">Format<select id="fmt"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></label>
+    <label class="fld" data-for="photo sign">Fit<select id="fit"><option value="fill">Fill (crop)</option><option value="fit">Fit (no crop)</option></select></label>
+   </div>
+   <div data-for="photo sign pass" class="mt-3"><p class="fld mb-2">Background colour</p><div id="bgs" class="flex items-center gap-2"></div></div>
+   <div data-for="pass" class="mt-3 grid grid-cols-2 gap-2">
+    <label class="fld">Photo size<select id="ppsize"><option value="35,45">35 × 45 mm</option><option value="50.8,50.8">2 × 2 inch</option><option value="25,35">25 × 35 mm</option></select></label>
+    <label class="fld">Copies<select id="ppn"><option value="99">Fill the sheet</option><option value="4">4</option><option value="6">6</option><option value="8">8</option></select></label>
+   </div>
+   <details data-for="photo sign comp" class="mt-3"><summary class="cursor-pointer text-sm font-semibold text-[var(--mut)]">Advanced</summary><label class="fld mt-2">Minimum KB (some forms need a bigger file)<input id="minkb" type="number" inputmode="numeric" min="0" placeholder="None"></label></details>
+   <button id="go" class="btn mt-5 flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-lg font-bold"><i data-lucide="wand-sparkles" class="h-5 w-5"></i><span id="gotxt">Create</span></button>
+   <div id="res" class="in mt-5 hidden rounded-2xl bg-[var(--tile)] p-4 text-center">
+    <img id="rimg" alt="Result" class="mx-auto mb-3 hidden max-h-56 rounded-xl">
+    <p id="rinfo" class="text-sm font-semibold"></p>
+    <div id="rbtns" class="mt-3 grid gap-2 sm:grid-cols-2"></div>
+   </div>
+  </section>
+ </div>
+ <footer class="mt-10 text-center text-sm text-[var(--mut)]">Developed by <span class="heart" role="img" aria-label="love">❤️</span> <strong class="text-[var(--ink)]">Reehan MP</strong></footer>
+</main>
+
+<nav id="btabs" class="glass fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 gap-1 border-t border-[var(--line)] px-2 pt-2 md:hidden" style="padding-bottom:calc(.5rem + env(safe-area-inset-bottom))" aria-label="Tools"></nav>
+<div id="toast" role="status" aria-live="polite" class="pointer-events-none fixed inset-x-4 bottom-28 z-50 mx-auto hidden max-w-sm rounded-2xl px-4 py-3 text-center font-medium text-white shadow-lg md:bottom-6"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],show=(e,o)=>e.classList.toggle('hidden',!o);
+const TOOLS={
+ photo:{n:'Photo',i:'image',t:'Photo resizer',d:'Exact pixels and KB for form photos.',w:200,h:230,kb:50,fit:'fill',p:[['200×230 · 50 KB',200,230,50],['100×120 · 20 KB',100,120,20],['3.5×4.5 cm',413,531,0],['Square 400',400,400,0]]},
+ sign:{n:'Signature',i:'pen-line',t:'Signature resizer',d:'Small, clean signature images for forms.',w:140,h:60,kb:20,fit:'fit',p:[['140×60 · 20 KB',140,60,20],['200×80 · 30 KB',200,80,30],['300×100 · 50 KB',300,100,50]]},
+ pass:{n:'Passport',i:'contact',t:'Passport photo sheet',d:'Crop once, print many on a 4×6 in sheet.'},
+ pdf:{n:'PDF',i:'file-text',t:'Images to PDF',d:'Add one or more images. Get one PDF, optionally under a KB limit.'},
+ comp:{n:'Compress',i:'minimize-2',t:'Compress image',d:'Same size in pixels, smaller in KB.',kb:100}
+};
+const S={tool:'photo',imgs:[],W:200,H:230,z:1,ox:0,oy:0,rot:0,bg:'#ffffff',fit:'fill'};
+const cv=$('#cv'),ctx=cv.getContext('2d');let toastT,dr=null;
+const toast=(m,ok)=>{const t=$('#toast');t.textContent=m;t.style.background=ok?'var(--ok)':'var(--bad)';show(t,true);clearTimeout(toastT);toastT=setTimeout(()=>show(t,false),3500)};
+const icons=()=>window.lucide&&lucide.createIcons();
+const R=document.documentElement;$('#theme').onclick=()=>{R.classList.toggle('dark');try{localStorage.setItem('fp-theme',R.classList.contains('dark')?'dark':'light')}catch{}};
+
+/* tabs */
+for(const [k,v] of Object.entries(TOOLS)){
+ for(const [box,cls] of [['#dtabs','tab dtab'],['#btabs','tab']]){const b=document.createElement('button');b.className=cls;b.dataset.t=k;b.setAttribute('aria-selected',k==='photo');b.innerHTML=`<i data-lucide="${v.i}" class="h-5 w-5"></i><span>${v.n}</span>`;b.onclick=()=>setTool(k);$(box).appendChild(b)}
+}
+/* background swatches */
+['#ffffff','#e8f0ff','#bcd7ff','#f3f3f3','#000000'].forEach(c=>{const b=document.createElement('button');b.className='h-8 w-8 rounded-full border-2 border-[var(--line)]';b.style.background=c;b.setAttribute('aria-label','Background '+c);b.onclick=()=>{S.bg=c;render()};$('#bgs').appendChild(b)});
+const pk=document.createElement('input');pk.type='color';pk.value='#ffffff';pk.className='h-8 w-10 rounded-lg';pk.setAttribute('aria-label','Custom colour');pk.oninput=()=>{S.bg=pk.value;render()};$('#bgs').appendChild(pk);
+
+function setTool(t){
+ S.tool=t;const T=TOOLS[t];
+ $$('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));
+ $('#ptitle').textContent=T.t;$('#pdesc').textContent=T.d;
+ $$('[data-for]').forEach(e=>show(e,e.dataset.for.split(' ').includes(t)));
+ if(t!=='pdf'&&S.imgs.length>1)S.imgs=[S.imgs[0]];
+ S.z=1;S.ox=S.oy=S.rot=0;S.bg='#ffffff';
+ if(t==='photo'||t==='sign'){S.W=T.w;S.H=T.h;S.fit=T.fit;$('#w').value=T.w;$('#h').value=T.h;$('#kb').value=T.kb||'';$('#fit').value=T.fit;
+  const p=$('#presets');p.innerHTML='';T.p.forEach(([l,w,h,k])=>{const c=document.createElement('button');c.className='chip';c.textContent=l;c.onclick=()=>{S.W=w;S.H=h;$('#w').value=w;$('#h').value=h;$('#kb').value=k||'';render()};p.appendChild(c)})}
+ if(t==='comp')$('#kb').value=T.kb;
+ if(t==='pdf')$('#kb').value='';
+ if(t==='pass')ppsize();
+ $('#fmt').value='image/jpeg';$('#minkb').value='';$('#zoom').value=1;
+ $('#gotxt').textContent={pdf:'Make PDF',pass:'Make sheet',comp:'Compress'}[t]||'Create';
+ show($('#res'),false);ui();
+}
+function ppsize(){const [a,b]=$('#ppsize').value.split(',').map(Number);S.W=Math.round(a/25.4*300);S.H=Math.round(b/25.4*300);S.fit='fill';render()}
+$('#ppsize').onchange=ppsize;
+['w','h'].forEach(i=>$('#'+i).oninput=()=>{S.W=Math.min(6000,Math.max(16,+$('#w').value||16));S.H=Math.min(6000,Math.max(16,+$('#h').value||16));render()});
+$('#fit').onchange=()=>{S.fit=$('#fit').value;render()};
+$('#zoom').oninput=()=>{S.z=+$('#zoom').value;render()};
+$('#rot').onclick=()=>{S.rot=(S.rot+1)%4;render()};
+$('#clear').onclick=()=>{S.imgs=[];ui()};
+
+/* files */
+async function add(files){
+ files=[...files].filter(f=>f.type.startsWith('image/')||/\.(jpe?g|png|webp|gif|bmp|avif)$/i.test(f.name));
+ if(!files.length)return toast('Please choose a photo (JPG, PNG or WebP).');
+ if(S.tool!=='pdf'){files=files.slice(0,1);S.imgs=[]}
+ for(const f of files){try{S.imgs.push({bmp:await createImageBitmap(f,{imageOrientation:'from-image'}).catch(()=>createImageBitmap(f)),name:f.name.replace(/\.[^.]+$/,'')||'photo'})}catch{toast('This photo format is not supported here. Try JPG or PNG.')}}
+ S.z=1;S.ox=S.oy=S.rot=0;$('#zoom').value=1;show($('#res'),false);ui();
+}
+$('#file').onchange=e=>{add(e.target.files);e.target.value=''};
+const drop=$('#drop');['dragover','dragenter'].forEach(v=>drop.addEventListener(v,e=>{e.preventDefault();drop.style.borderColor='var(--acc)'}));['dragleave','drop'].forEach(v=>drop.addEventListener(v,e=>{e.preventDefault();drop.style.borderColor=''}));
+drop.addEventListener('drop',e=>add(e.dataTransfer.files));
+addEventListener('paste',e=>{const f=[...(e.clipboardData?.files||[])];if(f.length)add(f)});
+
+function ui(){
+ const has=S.imgs.length>0,pdf=S.tool==='pdf';
+ show($('#drop'),!has);show($('#work'),has);
+ show($('#cvbox'),has&&!pdf);show($('#ctl'),has&&!pdf&&S.tool!=='comp');show($('#hint'),has&&!pdf&&S.tool!=='comp');
+ const pl=$('#plist');show(pl,has&&pdf);pl.className=(has&&pdf?'flex ':'hidden ')+'flex-wrap gap-2';pl.innerHTML='';
+ if(pdf)S.imgs.forEach((im,i)=>{const c=document.createElement('canvas');c.width=72;c.height=90;const x=c.getContext('2d'),k=Math.max(72/im.bmp.width,90/im.bmp.height);x.drawImage(im.bmp,(72-im.bmp.width*k)/2,(90-im.bmp.height*k)/2,im.bmp.width*k,im.bmp.height*k);
+  const w=document.createElement('div');w.className='relative';c.className='rounded-lg border border-[var(--line)]';const d=document.createElement('button');d.className='btn absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full text-xs';d.textContent='×';d.setAttribute('aria-label','Remove');d.onclick=()=>{S.imgs.splice(i,1);ui()};w.append(c,d);pl.appendChild(w)});
+ $('#addlbl').textContent=pdf?'Add more':'Change photo';
+ render();icons();
+}
+function render(){
+ const im=S.imgs[0];if(!im||S.tool==='pdf')return;
+ const o=S.rot%2,iw=o?im.bmp.height:im.bmp.width,ih=o?im.bmp.width:im.bmp.height;
+ if(S.tool==='comp'){S.W=iw;S.H=ih}
+ const W=S.W,H=S.H;cv.width=W;cv.height=H;
+ ctx.fillStyle=S.bg;ctx.fillRect(0,0,W,H);
+ const s=(S.fit==='fit'?Math.min(W/iw,H/ih):Math.max(W/iw,H/ih))*S.z;
+ ctx.save();ctx.translate(W/2+S.ox*W,H/2+S.oy*H);ctx.rotate(S.rot*Math.PI/2);ctx.scale(s,s);ctx.drawImage(im.bmp,-im.bmp.width/2,-im.bmp.height/2);ctx.restore();
+}
+cv.onpointerdown=e=>{dr={x:e.clientX,y:e.clientY};cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing'};
+cv.onpointermove=e=>{if(!dr||S.tool==='comp')return;S.ox+=(e.clientX-dr.x)/cv.clientWidth;S.oy+=(e.clientY-dr.y)/cv.clientHeight;dr={x:e.clientX,y:e.clientY};render()};
+cv.onpointerup=cv.onpointercancel=()=>{dr=null;cv.style.cursor='grab'};
+
+/* encode to a KB target (quality search; size in px is never changed) */
+const blobOf=(c,t,q)=>new Promise(r=>c.toBlob(r,t,q));
+async function encode(c,type,maxKB,minKB){
+ let b=await blobOf(c,type,.92),ok=true;
+ if(type!=='image/png'&&maxKB&&b.size>maxKB*1024){let lo=.02,hi=.92,best=null;for(let i=0;i<9;i++){const m=(lo+hi)/2,x=await blobOf(c,type,m);if(x.size<=maxKB*1024){best=x;lo=m}else hi=m}b=best||await blobOf(c,type,.02);ok=!!best}
+ else if(maxKB&&b.size>maxKB*1024)ok=false;
+ if(minKB&&b.size<minKB*1024)b=new Blob([b,new Uint8Array(Math.ceil(minKB*1024-b.size)+16)],{type});
+ return{b,ok};
+}
+/* tiny PDF writer: one JPEG per page, no library */
+function pdf(pages,W,H,mg){
+ const enc=new TextEncoder(),ch=[],off=[];let len=0;
+ const add=x=>{const b=typeof x==='string'?enc.encode(x):x;ch.push(b);len+=b.length};
+ const obj=(n,body)=>{off[n]=len;add(n+' 0 obj\n'+body+'\nendobj\n')};
+ add('%PDF-1.4\n');const n=pages.length;
+ obj(1,'<</Type/Catalog/Pages 2 0 R>>');obj(2,`<</Type/Pages/Kids[${pages.map((_,i)=>(3+i*3)+' 0 R').join(' ')}]/Count ${n}>>`);
+ pages.forEach((p,i)=>{const pg=3+i*3,ct=pg+1,im=pg+2,k=Math.min((W-2*mg)/p.w,(H-2*mg)/p.h),w=p.w*k,h=p.h*k;
+  obj(pg,`<</Type/Page/Parent 2 0 R/MediaBox[0 0 ${W} ${H}]/Contents ${ct} 0 R/Resources<</XObject<</I${i} ${im} 0 R>>>>>>`);
+  const c=`q ${w.toFixed(2)} 0 0 ${h.toFixed(2)} ${((W-w)/2).toFixed(2)} ${((H-h)/2).toFixed(2)} cm /I${i} Do Q`;
+  obj(ct,`<</Length ${c.length}>>\nstream\n${c}\nendstream`);
+  off[im]=len;add(`${im} 0 obj\n<</Type/XObject/Subtype/Image/Width ${p.w}/Height ${p.h}/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length ${p.bytes.length}>>\nstream\n`);add(p.bytes);add('\nendstream\nendobj\n')});
+ const tot=3+n*3,xr=len;add(`xref\n0 ${tot}\n0000000000 65535 f \n`);for(let i=1;i<tot;i++)add(String(off[i]).padStart(10,'0')+' 00000 n \n');
+ add(`trailer\n<</Size ${tot}/Root 1 0 R>>\nstartxref\n${xr}\n%%EOF`);return new Blob(ch,{type:'application/pdf'});
+}
+const kbs=b=>(b.size/1024).toFixed(1)+' KB';
+function save(it){const a=document.createElement('a');a.href=URL.createObjectURL(it.b);a.download=it.n;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000)}
+function showRes(items,info,warn){
+ const r=$('#res');show(r,true);$('#rinfo').textContent=info;$('#rinfo').style.color=warn?'var(--bad)':'var(--ok)';
+ const bx=$('#rbtns');bx.innerHTML='';
+ items.forEach((it,i)=>{const b=document.createElement('button');b.className=(i?'card':'btn')+' flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold';b.innerHTML='<i data-lucide="download" class="h-4 w-4"></i>'+it.l;b.onclick=()=>save(it);bx.appendChild(b)});
+ const f=new File([items[0].b],items[0].n,{type:items[0].b.type});
+ if(navigator.canShare&&navigator.canShare({files:[f]})){const b=document.createElement('button');b.className='card flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold';b.innerHTML='<i data-lucide="share-2" class="h-4 w-4"></i>Share';b.onclick=()=>navigator.share({files:[f]}).catch(()=>{});bx.appendChild(b)}
+ const im=$('#rimg');if(items[0].b.type.startsWith('image/')){im.src=URL.createObjectURL(items[0].b);show(im,true)}else show(im,false);
+ icons();r.scrollIntoView({behavior:'smooth',block:'nearest'});navigator.vibrate&&navigator.vibrate(30);
+}
+$('#go').onclick=async()=>{
+ if(!S.imgs.length)return toast('Add a photo first.');
+ const go=$('#go');go.disabled=true;const t=S.tool,type=$('#fmt').value,max=+$('#kb').value||0,min=+$('#minkb').value||0,nm=S.imgs[0].name;
+ try{
+  if(t==='pdf'){
+   let pages,q=.9;
+   for(const qq of [.9,.8,.7,.6,.5,.4,.3,.2]){q=qq;pages=[];let tot=0;
+    for(const im of S.imgs){const k=Math.min(1,2000/Math.max(im.bmp.width,im.bmp.height)),c=document.createElement('canvas');c.width=Math.round(im.bmp.width*k);c.height=Math.round(im.bmp.height*k);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im.bmp,0,0,c.width,c.height);const b=await blobOf(c,'image/jpeg',qq);tot+=b.size;pages.push({bytes:new Uint8Array(await b.arrayBuffer()),w:c.width,h:c.height})}
+    if(!max||tot<=max*1024)break}
+   const b=pdf(pages,595.28,841.89,24);showRes([{l:'Download PDF',b,n:nm+'.pdf'}],`${pages.length} page${pages.length>1?'s':''} · ${kbs(b)}`+(max&&b.size>max*1024?' · could not reach '+max+' KB, remove some images':' ✓'),max&&b.size>max*1024);
+  }else if(t==='pass'){
+   const pw=S.W,ph=S.H,sh=document.createElement('canvas');sh.width=1200;sh.height=1800;const x=sh.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,1200,1800);
+   const g=24,m=36,cols=Math.max(1,Math.floor((1200-2*m+g)/(pw+g))),rows=Math.max(1,Math.floor((1800-2*m+g)/(ph+g))),n=Math.min(cols*rows,+$('#ppn').value),sx=(1200-(cols*pw+(cols-1)*g))/2,sy=(1800-(rows*ph+(rows-1)*g))/2;
+   for(let i=0;i<n;i++){const px=sx+(i%cols)*(pw+g),py=sy+Math.floor(i/cols)*(ph+g);x.drawImage(cv,px,py);x.strokeStyle='#c8c8c8';x.lineWidth=1;x.strokeRect(px+.5,py+.5,pw-1,ph-1)}
+   const sj=await blobOf(sh,'image/jpeg',.93),pb=await blobOf(cv,'image/jpeg',.95),sp=new Uint8Array(await sj.arrayBuffer());
+   showRes([{l:'Sheet (JPG)',b:sj,n:nm+'-sheet.jpg'},{l:'Sheet (PDF)',b:pdf([{bytes:sp,w:1200,h:1800}],288,432,0),n:nm+'-sheet.pdf'},{l:'Single photo',b:pb,n:nm+'-passport.jpg'}],`${n} photos on a 4×6 in sheet · print at 100%, no scaling ✓`);
+  }else{
+   const o=await encode(cv,type,max,min),ext={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'}[type];
+   showRes([{l:'Download',b:o.b,n:`${nm}-${t}.${ext}`}],`${S.W}×${S.H} px · ${kbs(o.b)}`+(max?(o.ok?` · under ${max} KB ✓`:` · could not reach ${max} KB. Use JPG or a smaller size`):''),!o.ok);
+  }
+ }catch(e){toast('Something failed. Try a smaller photo.')}
+ go.disabled=false;
+};
+
+/* PWA */
+let dp;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;show($('#install'),true)});addEventListener('appinstalled',()=>show($('#install'),false));
+$('#install').onclick=async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;show($('#install'),false)};
+if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'))navigator.serviceWorker.register('/sw.js').catch(()=>{});
+setTool('photo');
+</script>
+</body>
+</html>
